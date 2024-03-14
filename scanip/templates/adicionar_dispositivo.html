@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5">
+    <h1>Adicionar Dispositivo</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.nome.label_tag }}
+            {{ form.nome }}
+            {% if form.nome.errors %}
+                <div class="text-danger">
+                    {% for error in form.nome.errors %}
+                        <strong>{{ error }}</strong>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.ip.label_tag }}
+            {{ form.ip }}
+            {% if form.ip.errors %}
+                <div class="text-danger">
+                    {% for error in form.ip.errors %}
+                        <strong>{{ error }}</strong>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar Dispositivo</button>
+    </form>
+</div>
+{% endblock %}

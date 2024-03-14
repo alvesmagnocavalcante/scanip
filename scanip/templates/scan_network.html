@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5">
+    <h1>Dispositivos Encontrados na Rede</h1>
+    <p>Copie o IP, clique em "Adicionar Dispositovo, cole o IP e escolha um nome"</p>
+    <ul class="list-group">
+        {% for device in devices %}
+        <li class="list-group-item">IP: {{ device.ip }}, MAC: {{ device.mac }}, Nome: {{ device.nome }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
